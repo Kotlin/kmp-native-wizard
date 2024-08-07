@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.kotlinxSerialization)
 }
 
 group = "me.user"
@@ -27,6 +28,12 @@ kotlin {
             executable {
                 entryPoint = "main"
             }
+        }
+    }
+
+    sourceSets {
+        nativeMain.dependencies {
+            implementation(libs.kotlinxSerializationJson)
         }
     }
 }
