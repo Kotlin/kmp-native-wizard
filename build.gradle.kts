@@ -1,5 +1,5 @@
 plugins {
-    kotlin("multiplatform") version "2.0.0"
+    alias(libs.plugins.kotlinMultiplatform)
 }
 
 group = "me.user"
@@ -28,9 +28,5 @@ kotlin {
                 entryPoint = "main"
             }
         }
-    }
-    sourceSets {
-        val nativeMain by getting
-        val nativeTest by getting
     }
 }
