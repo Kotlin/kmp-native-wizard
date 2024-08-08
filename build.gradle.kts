@@ -1,5 +1,6 @@
 plugins {
-    kotlin("multiplatform") version "2.0.0"
+    alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.kotlinxSerialization)
 }
 
 group = "me.user"
@@ -29,8 +30,10 @@ kotlin {
             }
         }
     }
+
     sourceSets {
-        val nativeMain by getting
-        val nativeTest by getting
+        nativeMain.dependencies {
+            implementation(libs.kotlinxSerializationJson)
+        }
     }
 }
